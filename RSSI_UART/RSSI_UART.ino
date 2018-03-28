@@ -14,18 +14,19 @@ void setup() {
  WiFi.mode(WIFI_STA);
  // Disconnect from AP
  WiFi.disconnect();
+ WiFi.softAP("NODE1");
 
  delay(100);
- Serial.println("Setup done");
-
+ //Serial.println("Setup done");
+ //WiFi.hostname("NODE1");
 }
 
 void loop() {
-  Serial.println("scan start");
+  //Serial.println("scan start");
   // WiFi.scanNetworks will return the number of networks found
   serialEvent();
   if (stringComplete) {
-    Serial.println(inputString);
+    //Serial.println(inputString);
     // clear the string:
     temp = inputString;
     inputString = "";
@@ -34,12 +35,12 @@ void loop() {
   temp.remove(length-1);
   temp.remove(length-2);
   int n = WiFi.scanNetworks();
-  Serial.println("scan done");
+  //Serial.println("scan done");
   if (n == 0) {
-    Serial.println("no networks found");
+    //Serial.println("no networks found");
   } else {
-    Serial.print(n);
-    Serial.println(" networks found");
+    //Serial.print(n);
+    //Serial.println(" networks found");
     //Serial.print(temp);
     for (int i = 0; i < n; ++i) {
       // Print SSID and RSSI for each network found
@@ -52,11 +53,11 @@ void loop() {
       //Serial.println((WiFi.encryptionType(i) == ENC_TYPE_NONE) ? " " : "*");
       if (temp == WiFi.SSID(i)) 
       {
-        Serial.print("here: ");
-        Serial.print(WiFi.SSID(i));
-        Serial.print(" (");
+        //Serial.print("here: ");
+        //Serial.print(WiFi.SSID(i));
+        //Serial.print(" (");
         Serial.print(WiFi.RSSI(i));
-        Serial.println(")");
+        //Serial.println(")");
       }
       delay(10);
     }
