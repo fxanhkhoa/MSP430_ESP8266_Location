@@ -57,13 +57,14 @@ void loop() {
         //Serial.print(WiFi.SSID(i));
         //Serial.print(" (");
         Serial.print(WiFi.RSSI(i));
+        Serial.print("*");
         //Serial.println(")");
       }
       delay(10);
     }
   }
   }
-  Serial.println("");
+  //Serial.println("");
 
   // Wait a bit before scanning again
 delay(5000);
